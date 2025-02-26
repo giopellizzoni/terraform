@@ -12,7 +12,7 @@ resource "azurerm_storage_account" "storage-account-gp" {
   resource_group_name      = azurerm_resource_group.rg-storage-account-gp.name
   location                 = var.location
   account_tier             = var.envinronment == "prod" ? "Premium" : "Standard"
-  account_replication_type = var.envinronment == "dev" ? "RAGZRS" : "LRS"
+  account_replication_type = var.envinronment == "prod" ? "RAGZRS" : "LRS"
 
   tags = local.common_tags
 }
